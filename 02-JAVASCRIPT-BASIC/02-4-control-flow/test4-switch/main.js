@@ -1,7 +1,7 @@
 "use strict";
 
 // random() - 랜덤값, (난수 발생) 0 ~ 1.0 실수로.. 
-// 0~3의 난수, *3
+// 0~3의 난수를 하고 싶으면 *3
 // round() - 반올림
 let data = Math.round(Math.random() * 3)
 console.log(`random : ${data}`)
@@ -9,15 +9,15 @@ console.log(`random : ${data}`)
 switch(data % 3){
   case 0: {
     console.log('나머지는 0입니다.')
-    break
+    break;
   }
   case 1: {
     console.log('나머지는 1입니다.')
-    break
+    break;
   }
   case 2: {
     console.log('나머지는 2입니다.')
-    break
+    break;
   }
   default: {
     console.log('default 부분이 실행되었습니다.')
