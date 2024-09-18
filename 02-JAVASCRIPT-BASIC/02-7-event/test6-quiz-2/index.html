@@ -4,8 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .errorMsg {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-  
+  <h3>로그인</h3>
+  <form id="form">
+    ID: <input type="text" id="id"><br />
+    <div id="idErrorMsg" class="errorMsg"></div>
+    PW: <input type="text" id="password"><br />
+    <div id="pwErrorMsg" class="errorMsg"></div>
+    <button id="loginBtn" onclick="login(e)">로그인</button>
+  </form>
+  <div id="result"></div>
+  <script src="main.js"></script>
 </body>
 </html>

@@ -1,19 +1,21 @@
 "use strict";
 
-let resultNode = document.getElementById('result')
-let formNode = document.getElementById('myForm')
+let result = document.getElementById('result')
+let form = document.getElementById('form')
 
 function printResult(msg){
-  resultNode.innerHTML = msg 
+  result.innerHTML = msg
 }
 
-formNode.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault()
 
   let nameNode = document.getElementById('name')
   let phoneNode = document.getElementById('phone')
   let jobNode = document.getElementById('job')
+  printResult(`name: ${nameNode.value}<br /> phone: ${phoneNode.value}<br /> job: ${jobNode.value}`)
+})
 
-  let msg = `name : ${nameNode.value}<br/> phone : ${phoneNode.value}<br/> job : ${jobNode.value}`
-  printResult(msg)
+form.addEventListener('reset', () => {
+  printResult('취소되었습니다.')
 })
