@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 여기에 부모 창에서 사용할 자바스크립트 코드를 작성
+    // 자식 창에서 사용할 수 있도록 var 키워드로 선언
+    var mainData = 10; // 자식 창에서 접근할 수 있는 변수
+    function mainFun() {
+      console.log('mainFun call') // 자식 창에서 이 함수를 호출하면 콘솔에 이 메시지를 출력
+    }
+
+    function goChild() {
+      // 새 창을 열고, 열리는 위치와 크기를 설정해줌
+      window.open('child.html', '_blank', 'left = 100, top = 100, width = 300, height = 400')
+    }
+
+    function getChildData() {
+      // 자식 창의 데이터와 함수를 불러옴
+      console.log(child.childData) // 자식 창의 'childData' 값을 콘솔에 출력
+      child.childFun()
+    }
+  </script>
+</head>
+
+<body>
+  <h1>I'm Parent Page!!</h1>
+  <button onclick="goChild()">go child</button>
+  <button onclick="getChildData()">get child data</button>
+</body>
+
+</html>

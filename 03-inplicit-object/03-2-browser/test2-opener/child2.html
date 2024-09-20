@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 여기에 자식 창의 자바스크립트 코드를 추가
+    function getMainData() {
+      // 부모 창의 변수와 함수를 가져옴
+      console.log('child log', opener.mainData) // 부모 창의 'mainData'를 콘솔에 출력
+      opener.mainFun()
+    }
+
+    var childData = 20 // 부모 창에서 사용할 수 있는 데이터
+    function childFun() {
+      console.log('childFun call') // 부모 창에서 호출하면 실행될 함수
+    }
+
+    // 자식 창을 'child'라는 이름으로 부모 창에 등록
+    opener.child = this
+
+    function myClose() {
+      // 부모 창의 URL을 변경하고 자식 창을 닫음
+      opener.location.href = 'http://www.naver.com' // 부모 창을 특정 URL로 이동
+      window.close() // 자식 창을 닫음
+    }
+  </script>
+</head>
+
+<body>
+  <h1>I'm Child Page!!</h1>
+  <button onclick="getMainData()">get main data</button>
+  <button onclick="myClose()">close</button>
+</body>
+
+</html>
