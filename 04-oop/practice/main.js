@@ -11,14 +11,38 @@ let products = [
   new Product('배꼽살', 4000),
   new Product('중뱃살', 1000)
 ];
-console.log(products);
 
-let productSelected = document.getElementById('product');
-console.log(productSelected);
-
+let productSelect = document.getElementById('product');
 products.forEach(product => {
   let option = document.createElement('option');
   option.value = product.name;
-  option.text = `${product.name} - ${product.price}`;
-  productSelected.appendChild(option);
+  option.text = `${product.name} - ${product.price}원`;
+  productSelect.appendChild(option);
 });
+
+function submitOrder() {
+  let selectedOptions = Array.from(productSelect.selectedOptions);
+  let productsList = document.getElementById('productsList');
+  let totalAmount = document.querySelector('h3');
+  productsList.innerHTML = '';
+  let totalPrice = 0;
+
+  if (selectedOptions.length === 0) {
+    alert('상품을 선택해 주세요.');
+    return;
+  }
+
+  productsList.style.display = 'block';
+  totalAmount.style.display = 'block';
+
+  selectedOptions.forEach(option => {
+    let product = products.find(p => p.name === option.value);
+    totalPrice += product.price;
+
+    let listItem = document.createElement('li');
+    listItem.textContent = `${product.name} - ${product.price}원`;
+    productsList.appendChild(listItem);
+  });
+
+  document.getElementById('totalPrice').textContent = totalPrice;
+}
