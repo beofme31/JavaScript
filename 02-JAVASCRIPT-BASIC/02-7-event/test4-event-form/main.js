@@ -3,16 +3,17 @@
 let result = document.getElementById('result')
 let form = document.getElementById('form')
 
-function printResult(msg){
+function printResult(msg) {
   result.innerHTML = msg
 }
 
 form.addEventListener('submit', (e) => {
   // form의 submit은 브라우저에 기본으로 서버 요청, 결과로 화면 갱신처리
-  // js에서 이벤트 처리하려면 브라우저의 기본 이벤트 처리 되지 않게 막아서
+  // js에서 이벤트 처리하려면 브라우저의 기본 이벤트 처리되지 않게 막아서
   e.preventDefault()
   printResult('submit event')
 })
+
 form.addEventListener('reset', () => {
   printResult('reset event')
 })
@@ -37,9 +38,11 @@ input1.addEventListener('blur', (e) => {
 select1.addEventListener('focus', (e) => {
   e.target.style.background = 'pink'
 })
+
 select1.addEventListener('change', (e) => {
   printResult(`input change: ${e.target.value}`)
 })
+
 select1.addEventListener('blur', (e) => {
   e.target.style.background = ''
 })
