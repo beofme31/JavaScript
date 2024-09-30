@@ -2,15 +2,16 @@
 
 // HTML 문서 로딩 완료 이벤트, DOM node가 메모리에 완성된 순간
 window.addEventListener('load', () => {
-  console.log('HMTL 문서 로딩이 완료');
+  console.log('HTML 문서 로딩이 완료');
 })
 
 window.onload = () => {
-  console.log('HTML 문서 로딩이 완료 2');
+  console.log('HTML 문서 로딩이 완료2');
 }
 
+// button3 onclick에서 연결한 함수
 const myEventHandler = () => {
-  console.log('myEventHandler - button click');
+  console.log('myEventHandler, button click');
 }
 
 let button1Node = document.getElementById('button1')
