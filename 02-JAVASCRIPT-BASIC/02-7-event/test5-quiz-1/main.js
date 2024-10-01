@@ -1,21 +1,20 @@
 "use strict";
 
-let result = document.getElementById('result')
-let form = document.getElementById('form')
+let resultNode = document.getElementById('result')
+let formNode = document.getElementById('form')
 
-function printResult(msg){
-  result.innerHTML = msg
+function printResult(msg) {
+  resultNode.innerHTML = msg
 }
 
-form.addEventListener('submit', (e) => {
+formNode.addEventListener('submit', (e) => {
   e.preventDefault()
 
   let nameNode = document.getElementById('name')
   let phoneNode = document.getElementById('phone')
   let jobNode = document.getElementById('job')
-  printResult(`name: ${nameNode.value}<br /> phone: ${phoneNode.value}<br /> job: ${jobNode.value}`)
-})
 
-form.addEventListener('reset', () => {
-  printResult('취소되었습니다.')
+  let msg = `이름: ${nameNode.value}<br />전화번호: ${phoneNode.value}<br />직업: ${jobNode.value}`
+
+  printResult(msg)
 })
