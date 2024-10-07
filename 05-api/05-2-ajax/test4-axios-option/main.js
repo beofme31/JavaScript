@@ -68,6 +68,8 @@ function axios_transform() {
       age: 30
     },
     transformRequest: [
+      // 데이터를 보내기 전에 조작하는 이유
+      // -> 형식에 맞춰 보내거나 필요한 정보 추가 또는 보안상 민감한 정보를 제거하기 위해
       // 요청시 실행되어야 하는 함수 여러개를 배열에 담으면
       // 등록한 순서대로 실행된다.
       function (data, headers) {
@@ -77,11 +79,13 @@ function axios_transform() {
         console.log(data);
         console.log(headers);
         headers['Content-Type'] = 'application/json' // header 정보 추가
-        let newData = { ...data, key: 1 } // data에 하나 추가\
+        let newData = { ...data, key: 1 } // data에 하나 추가
         return JSON.stringify(newData) // 리턴시킨 값이 서버 전송
       }
     ],
     transformResponse: [
+      // 데이터를 받고 나서 조작하는 이유:
+      // ->데이터를 쉽게 사용하거나 불필요한 정보를 걸러내고 내가 원하는 형식으로 바꾸기 위해서
       // 응답이 도착했을 때 실행될 함수, 서버 데이터를 이용하기 전에 조작
       function (data) {
         // 매개변수가 서버에서 받은 데이터
