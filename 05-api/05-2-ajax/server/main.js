@@ -15,6 +15,7 @@ const app = express();
 //back end 의 origin 은.. 
 //http://localhost:3000/sum/10
 //이 구조에서는 CORS 문제 발생한다.. 
+//CORS 문제를 해결하기 위해서 back-end 에서 response header 에.. orgin 이 상이하더라도 통과시켜줘..
 //라고 명시해야..
 
 app.use(cors());

@@ -41,10 +41,35 @@
 // setTimeout(() => clearInterval(id), 3000)
 
 
-// // 0.5초 걸리는 업무를 진행하는 함수를 1초마다 반복 호출
-// // 일부러 시간을 지연시키기 위해서
-// function sleep(sec) {
-//   // 매개변수 시간 후에 결과 리턴
-//   return new Promise(resolve => setTimeout(resolve, sec))
+// 0.5초 걸리는 업무를 진행하는 함수를 1초마다 반복 호출
+// 일부러 시간을 지연시키기 위해서
+function sleep(sec) {
+  // 매개변수 시간 후에 결과 리턴
+  return new Promise(resolve => setTimeout(resolve, sec))
+}
+let beforeTime = performance.now()
+
+// let sayHello = async () => {
+//   let nowTime = performance.now()
+//   console.log(nowTime - beforeTime);
+//   beforeTime = nowTime
+//   await sleep(500) // 0.5초 쉬고
 // }
-// let beforeTime = performance.now()
+
+// let id = setInterval(sayHello, 1000)
+// setTimeout(() => clearInterval(id), 3000)
+// -> 업무가 1초마다 실행된 것이 아니라, 함수 호출 자체가 1초마다
+
+
+// 0.5초 걸리는 업무를 진행한 후에 1초 후에 다시 업무 진행
+let id = 0
+let sayHello = async () => {
+  let nowTime = performance.now()
+  console.log(nowTime - beforeTime);
+  beforeTime = nowTime
+  await sleep(500) // 0.5초 업무 진행
+  // 밑줄이 실행되었다는 것은 윗줄의 실행이 끝났다는 것
+  setTimeout(sayHello, 1000)
+}
+
+setTimeout(sayHello, 1000)
