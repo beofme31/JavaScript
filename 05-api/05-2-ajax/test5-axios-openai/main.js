@@ -12,7 +12,7 @@ button.addEventListener('click', function () {
     // axios의 경우 서버에서 넘어온 데이터가 json 문자열이면
     // 우리가 직접 object로 전환하지 않아도 자동 전환된다.
 
-    let rows = response.data.RealtimeCityAir.row;
+    let rows = response.data.RealtimeCityAir.row
 
     let resultTxt = ''
     for (let i = 0; i < rows.length; i++) {
@@ -38,6 +38,7 @@ button.addEventListener('click', function () {
   xhr.onload = function () {
     let result = xhr.responseText
     let resultObj = JSON.parse(result)
+
     let rows = resultObj['RealtimeCityAir']['row']
     let resultTxt = ''
     for (let i = 0; i < rows.length; i++) {
