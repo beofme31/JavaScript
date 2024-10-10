@@ -245,7 +245,9 @@ function emojiClick(msgId, emojiId) {
 function onMessage(event) {
   // 서버 데이터 획득, object literal로 변환
   let serverData = JSON.parse(event.data)
+  // 서버로부터 받은 데이터의 종류를 판별, 데이터의 유형을 나타냄
   if (serverData.gubun === 'connect') {
+    // 연결 시도의 결과를 나타냄, ok는 연결이 성공적으로 이루어진 것
     if (serverData.state === 'ok') {
       nicknameForm.style.display = 'none'
       msgForm.removeAttribute('style')
