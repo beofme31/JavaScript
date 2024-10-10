@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    // 컴파일 시킨 산출물(js 파일)을 만들 디렉토리 위치
+    "outDir": "./build/",
+    // compile 대상에 ts뿐만 아니라 js까지 포함시킬지 설정하는 것
+    // true로 주는 경우는 개발자가 작성한 js 파일이 es6인 경우
+    // 현존하는 브라우저 중에서 아직 es6를 지원하지 못하는 브라우저가 있을 수 있고
+    // 그 브라우저에서도 정상적으로 동작하게 하려면
+    // es6 -> es5 코드로 변형시켜서 전체 브라우저에 동작하게
+    "allowJs": true,
+    // 자바스크립트 모듈화 방식이 두가지
+    // es6 스타일의 모듈화 방법이 있고
+    // common js(과거에 사용되었던) 방법이 있다.
+    "esModuleInterop": true,
+    // json 파일을 마치 코드에서 객체로 바로 이용 가능하게
+    "resolveJsonModule": true,
+    // ts -> js로 컴파일 시킬 때
+    // js.map 파일을 자동으로 만들어 달라
+    // 개발자가 분석할 파일은 아닌데, 디버깅을 위해서 만들어주는 게 좋다.
+    // 런타임 시에는 js가 실행, 런타임 에러가 발생하면 js 라인 수가 나온다.
+    // 우리가 개발하고 우리가 유지보수하는 파일은 js가 아니라 ts이다.
+    // 런타임 에러가 발생했을 때, 에러 위치를 ts 코드 위치로 알려줘야 유지보수가 편하다.
+    // 이 둘간의 관계를 유지하는 파일이 map, 이 map 파일이 있어야 ts 위치로 알려준다.
+    "sourceMap": true,
+    // any 타입을 허용할 것인가의 설정
+    // any - 아무 타입이나 다
+    // 권장하지는 않는다.
+    "noImplicitAny": true,
+    // 컴파일된 js 코드를 es5 스타일로 할지 es6 스타일로 할지
+    "target": "es5",
+    // jsx 구문을 어느 형태의 js로 변형시킬까?
+    // 대부분 react
+    "jsx": "react",
+    // 모듈화 방식, target과 맞추어서 target에서 es5로 하면 commonJs
+    // es6이면 이곳도 es6
+    "module": "CommonJS"
+  },
+  // transpile 시킬 대상 폴더 파일
+  "include": [
+    "./src/**/*"
+  ],
+  // include에 있는 파일 중 제외시킬 파일들
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
