@@ -40,17 +40,17 @@ superObj.some();
 superObj.age = 20;
 // superObj.adress = 'seoul'; // 접근 범위가 한정되어서 error
 // superObj.url = '~~~' // protected도 마찬가지
-var SubClass = /** @class */ (function (_super) {
-    __extends(SubClass, _super);
-    function SubClass() {
+var SubClass1 = /** @class */ (function (_super) {
+    __extends(SubClass1, _super);
+    function SubClass1() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    SubClass.prototype.some = function () {
+    SubClass1.prototype.some = function () {
         this.age = 30;
         this.url = '~~';
-        this.address = 'aaa'; // 하위라고 해도 안됨, error
+        // this.address = 'aaa'; // 하위라고 해도 안됨, error
     };
     ;
-    return SubClass;
+    return SubClass1;
 }(SuperClass));
 ;
